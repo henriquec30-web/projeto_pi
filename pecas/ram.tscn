@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://dbfdw4id2js2u"]
+
+[ext_resource type="Script" uid="uid://bdl47oq3bf0wf" path="res://pecas/scripts/ram.gd" id="1_wx6n8"]
+[ext_resource type="Texture2D" uid="uid://cfc5tlilph4dv" path="res://pecas/imagens/_81abcc6e-96d7-472e-be26-3a8b88dda251 (1).png" id="2_1i15m"]
+[ext_resource type="FontFile" uid="uid://cgg2hy2u1e2mk" path="res://Fontes/SairaStencil-SemiBold.ttf" id="3_pwc5h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1i15m"]
+size = Vector2(12, 192)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mobjj"]
+bg_color = Color(0.2509804, 0.2509804, 0.2509804, 1)
+border_width_left = 6
+border_width_top = 3
+border_width_right = 6
+border_color = Color(0.2509804, 0.2509804, 0.2509804, 1)
+
+[node name="RAM" type="Node2D" unique_id=1747550937]
+metadata/categoria = "ram"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=82470733]
+script = ExtResource("1_wx6n8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=183364426]
+position = Vector2(4.999996, 1.000003)
+scale = Vector2(0.7, 0.7733334)
+texture = ExtResource("2_1i15m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=434821036]
+shape = SubResource("RectangleShape2D_1i15m")
+
+[node name="PopupMenu" type="PopupMenu" parent="Area2D" unique_id=767906565]
+oversampling_override = 1.0
+
+[node name="PopupPanel" type="PopupPanel" parent="Area2D" unique_id=609096011]
+oversampling_override = 1.0
+position = Vector2i(865, 388)
+size = Vector2i(228, 275)
+theme_override_styles/panel = SubResource("StyleBoxFlat_mobjj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Area2D/PopupPanel" unique_id=1450713118]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="Area2D/PopupPanel/VBoxContainer" unique_id=1780769793]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pwc5h")
+text = "Modelo: Kingston Fury Beast
+Capacidade: 8 GB
+Tipo: DDR4
+Frequência: 3200 MHz
+Latência: CL16
+Tensão: 1.35V
+Formato: DIMM
+Compatibilidade: Desktop"
+
+[node name="Button" type="Button" parent="Area2D/PopupPanel/VBoxContainer" unique_id=170487971]
+layout_mode = 2
+size_flags_horizontal = 8
+text = " x "
+flat = true
+
+[connection signal="pressed" from="Area2D/PopupPanel/VBoxContainer/Button" to="Area2D" method="_on_button_pressed"]

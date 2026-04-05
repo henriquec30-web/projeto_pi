@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://chjr7tht6pfdn"]
+
+[ext_resource type="Script" uid="uid://bv5epysxqsvko" path="res://pecas/scripts/gpu.gd" id="1_4dsd8"]
+[ext_resource type="Texture2D" uid="uid://da3f3dkp7cm1o" path="res://pecas/imagens/download (1) (2).png" id="2_4dsd8"]
+[ext_resource type="FontFile" uid="uid://cgg2hy2u1e2mk" path="res://Fontes/SairaStencil-SemiBold.ttf" id="3_jh4py"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dsd8"]
+size = Vector2(272, 53)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jiac2"]
+bg_color = Color(0.2509804, 0.2509804, 0.2509804, 1)
+border_width_left = 6
+border_width_top = 3
+border_width_right = 6
+border_color = Color(0.2509804, 0.2509804, 0.2509804, 1)
+
+[node name="placa_video" type="Node2D" unique_id=699692271]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=217894227]
+script = ExtResource("1_4dsd8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1539922505]
+position = Vector2(-34.99997, 13.0000305)
+rotation = -6.2831855
+texture = ExtResource("2_4dsd8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=907008834]
+position = Vector2(-37.99997, 24.00003)
+shape = SubResource("RectangleShape2D_4dsd8")
+
+[node name="PopupMenu" type="PopupMenu" parent="Area2D" unique_id=1001458996]
+
+[node name="PopupPanel" type="PopupPanel" parent="Area2D" unique_id=881979445]
+oversampling_override = 1.0
+position = Vector2i(865, 475)
+size = Vector2i(189, 129)
+theme_override_styles/panel = SubResource("StyleBoxFlat_jiac2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Area2D/PopupPanel" unique_id=15093605]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 183.0
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="Area2D/PopupPanel/VBoxContainer" unique_id=1985803725]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jh4py")
+text = "Nome: NVIDIA GTX 1660
+Memória: 6 GB GDDR5
+Clock Base: 1530 MHz
+Clock Boost: 1785 MHz
+Interface: PCIe 3.0
+Saídas: HDMI, DisplayPort
+TDP: 120W"
+
+[node name="Button" type="Button" parent="Area2D/PopupPanel/VBoxContainer" unique_id=1981139190]
+layout_mode = 2
+size_flags_horizontal = 8
+text = " x "
+flat = true
+
+[connection signal="pressed" from="Area2D/PopupPanel/VBoxContainer/Button" to="Area2D" method="_on_button_pressed"]

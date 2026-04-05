@@ -1,0 +1,240 @@
+[gd_scene format=3 uid="uid://8msm15fb3v2o"]
+
+[ext_resource type="PackedScene" uid="uid://beluxmqqp6squ" path="res://pecas/placa_mae.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dbfdw4id2js2u" path="res://pecas/ram.tscn" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://bhcpqypv6txta" path="res://pecas/scripts/canvas_layer.gd" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bl1m71ij3fgtc" path="res://pecas/processador.tscn" id="4_272bh"]
+[ext_resource type="Texture2D" uid="uid://djqsvyjgkag42" path="res://pecas/imagens/minimized (1).png" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://chjr7tht6pfdn" path="res://pecas/placa_video.tscn" id="5_kek77"]
+[ext_resource type="Texture2D" uid="uid://cw6kxne55dhv6" path="res://pecas/imagens/_81abcc6e-96d7-472e-be26-3a8b88dda251 (1) (1).png" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://munbrqid7ev3" path="res://pecas/imagens/processador 200.png" id="6_7mycd"]
+[ext_resource type="FontFile" uid="uid://cgg2hy2u1e2mk" path="res://Fontes/SairaStencil-SemiBold.ttf" id="6_efxa6"]
+[ext_resource type="FontFile" uid="uid://dsat81iw7li6m" path="res://Fontes/Quicksand-Regular.ttf" id="8_dg77c"]
+[ext_resource type="Texture2D" uid="uid://b1b2iahopoihv" path="res://pecas/imagens/download (1) (1).png" id="9_4c57u"]
+
+[node name="main" type="Node2D" unique_id=1922726351]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1207006941]
+script = ExtResource("3_h2yge")
+placa_scene = ExtResource("1_0xm2m")
+ram_scene = ExtResource("2_h2yge")
+processador_scene = ExtResource("4_272bh")
+gpu_scene = ExtResource("5_kek77")
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=546720659]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1303.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel" unique_id=1811026]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/VBoxContainer" unique_id=866471702]
+layout_mode = 2
+
+[node name="todos" type="Button" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer" unique_id=101300831]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_efxa6")
+theme_override_font_sizes/font_size = 20
+text = " Todos "
+
+[node name="placas" type="Button" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer" unique_id=1315330600]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_efxa6")
+theme_override_font_sizes/font_size = 20
+text = " Placa Mãe "
+
+[node name="memoria" type="Button" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer" unique_id=972928450]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_efxa6")
+theme_override_font_sizes/font_size = 20
+text = " Memória "
+
+[node name="cpu" type="Button" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer" unique_id=1735741892]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_efxa6")
+theme_override_font_sizes/font_size = 20
+text = " Processadores "
+
+[node name="gpu" type="Button" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer" unique_id=1983026936]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_efxa6")
+theme_override_font_sizes/font_size = 20
+text = " Placa de Video "
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Panel/VBoxContainer" unique_id=607337128]
+layout_mode = 2
+columns = 3
+
+[node name="placa-mae" type="Button" parent="CanvasLayer/Panel/VBoxContainer/GridContainer" unique_id=1195232468]
+custom_minimum_size = Vector2(200, 236)
+layout_mode = 2
+metadata/categoria = "placa"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/VBoxContainer/GridContainer/placa-mae" unique_id=1268381171]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer/GridContainer/placa-mae/VBoxContainer" unique_id=963189802]
+layout_mode = 2
+texture = ExtResource("4_lquwl")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/VBoxContainer/GridContainer/placa-mae/VBoxContainer" unique_id=2010342315]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_dg77c")
+theme_override_font_sizes/font_size = 18
+text = "Placa-Mãe"
+horizontal_alignment = 1
+
+[node name="ram" type="Button" parent="CanvasLayer/Panel/VBoxContainer/GridContainer" unique_id=317657245]
+custom_minimum_size = Vector2(200, 236)
+layout_mode = 2
+metadata/categoria = "ram"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/VBoxContainer/GridContainer/ram" unique_id=1720671658]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 227.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer/GridContainer/ram/VBoxContainer" unique_id=1273945804]
+layout_mode = 2
+texture = ExtResource("5_lquwl")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/VBoxContainer/GridContainer/ram/VBoxContainer" unique_id=1731332866]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_dg77c")
+theme_override_font_sizes/font_size = 18
+text = "Memória"
+horizontal_alignment = 1
+
+[node name="processador" type="Button" parent="CanvasLayer/Panel/VBoxContainer/GridContainer" unique_id=1301846598]
+custom_minimum_size = Vector2(200, 236)
+layout_mode = 2
+metadata/categoria = "cpu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/VBoxContainer/GridContainer/processador" unique_id=250674903]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer/GridContainer/processador/VBoxContainer" unique_id=1211545686]
+layout_mode = 2
+texture = ExtResource("6_7mycd")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/VBoxContainer/GridContainer/processador/VBoxContainer" unique_id=274958188]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_dg77c")
+theme_override_font_sizes/font_size = 18
+text = "Processador"
+horizontal_alignment = 1
+
+[node name="placa_video" type="Button" parent="CanvasLayer/Panel/VBoxContainer/GridContainer" unique_id=247989967]
+custom_minimum_size = Vector2(200, 236)
+layout_mode = 2
+metadata/categoria = "gpu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/VBoxContainer/GridContainer/placa_video" unique_id=1343286862]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer/GridContainer/placa_video/VBoxContainer" unique_id=967837627]
+layout_mode = 2
+texture = ExtResource("9_4c57u")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/VBoxContainer/GridContainer/placa_video/VBoxContainer" unique_id=437058913]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_dg77c")
+theme_override_font_sizes/font_size = 18
+text = "Placa de Video "
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=2004120934]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -173.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Button" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=781181065]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_efxa6")
+theme_override_font_sizes/font_size = 20
+text = "Componentes"
+
+[node name="Button2" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=2012610224]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_efxa6")
+theme_override_font_sizes/font_size = 20
+text = "Menu"
+
+[node name="PopupPanel" type="PopupPanel" parent="CanvasLayer/HBoxContainer/Button2" unique_id=843312575]
+oversampling_override = 1.0
+initial_position = 1
+size = Vector2i(502, 119)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/Button2/PopupPanel" unique_id=419887183]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 498.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/Button2/PopupPanel/VBoxContainer" unique_id=223025388]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_efxa6")
+theme_override_font_sizes/font_size = 20
+text = "Tem certeza que deseja sair do modo SANDBOX? 
+todas as alterações serão sapagadas."
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/Button2/PopupPanel/VBoxContainer" unique_id=816142106]
+layout_mode = 2
+alignment = 1
+
+[node name="Sim" type="Button" parent="CanvasLayer/HBoxContainer/Button2/PopupPanel/VBoxContainer/HBoxContainer" unique_id=1298323008]
+custom_minimum_size = Vector2(245, 10)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_efxa6")
+theme_override_font_sizes/font_size = 20
+text = "Sim"
+
+[node name="Nao" type="Button" parent="CanvasLayer/HBoxContainer/Button2/PopupPanel/VBoxContainer/HBoxContainer" unique_id=138680177]
+custom_minimum_size = Vector2(245, 10)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_efxa6")
+theme_override_font_sizes/font_size = 20
+text = "Não"
+
+[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/HBoxContainer/todos" to="CanvasLayer" method="_on_todos_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/HBoxContainer/placas" to="CanvasLayer" method="_on_placas_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/HBoxContainer/memoria" to="CanvasLayer" method="_on_memoria_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/HBoxContainer/cpu" to="CanvasLayer" method="_on_cpu_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/HBoxContainer/gpu" to="CanvasLayer" method="_on_gpu_pressed"]
+[connection signal="button_down" from="CanvasLayer/Panel/VBoxContainer/GridContainer/placa-mae" to="CanvasLayer" method="_on_placamae_button_down"]
+[connection signal="button_down" from="CanvasLayer/Panel/VBoxContainer/GridContainer/ram" to="CanvasLayer" method="_on_ram_button_down"]
+[connection signal="button_down" from="CanvasLayer/Panel/VBoxContainer/GridContainer/processador" to="CanvasLayer" method="_on_processador_button_down"]
+[connection signal="button_down" from="CanvasLayer/Panel/VBoxContainer/GridContainer/placa_video" to="CanvasLayer" method="_on_placa_video_button_down"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Button" to="CanvasLayer" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Button2" to="CanvasLayer" method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Button2/PopupPanel/VBoxContainer/HBoxContainer/Sim" to="CanvasLayer" method="_on_sim_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Button2/PopupPanel/VBoxContainer/HBoxContainer/Nao" to="CanvasLayer" method="_on_nao_pressed"]

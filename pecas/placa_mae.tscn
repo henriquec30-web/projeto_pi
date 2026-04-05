@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://beluxmqqp6squ"]
+
+[ext_resource type="Script" uid="uid://f50yqjyhl5c" path="res://pecas/scripts/placa-mae.gd" id="1_mpnix"]
+[ext_resource type="Script" uid="uid://b2o1xvj7ioip0" path="res://pecas/scripts/slot.gd" id="2_4bep4"]
+[ext_resource type="Texture2D" uid="uid://e5eir6jx1dde" path="res://pecas/imagens/placa-mae-isolada-em-branco_169241-4765-_1_.png" id="2_wyghn"]
+[ext_resource type="Script" uid="uid://c1lt8i7o6e3c8" path="res://pecas/slot-cpu.gd" id="4_wyghn"]
+[ext_resource type="Script" uid="uid://y002y0ch7ueb" path="res://pecas/slot_gpu.gd" id="5_h838n"]
+[ext_resource type="FontFile" uid="uid://cgg2hy2u1e2mk" path="res://Fontes/SairaStencil-SemiBold.ttf" id="6_08jrq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h838n"]
+size = Vector2(320, 435)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08jrq"]
+size = Vector2(44, 244)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mfca"]
+size = Vector2(109, 103)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rucux"]
+size = Vector2(233.5, 84.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mfca"]
+bg_color = Color(0.2509804, 0.2509804, 0.2509804, 1)
+border_width_left = 6
+border_width_top = 3
+border_width_right = 6
+border_color = Color(0.2509804, 0.2509804, 0.2509804, 1)
+
+[node name="Placa-Mae" type="Node2D" unique_id=920282763]
+metadata/categoria = "placa"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=157553349]
+script = ExtResource("1_mpnix")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1398020797]
+scale = Vector2(0.7587859, 0.8466455)
+texture = ExtResource("2_wyghn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1124865723]
+position = Vector2(4, -0.5)
+shape = SubResource("RectangleShape2D_h838n")
+
+[node name="Area2D" type="Area2D" parent="Area2D" unique_id=734063759 groups=["slots"]]
+position = Vector2(77, -105)
+script = ExtResource("2_4bep4")
+
+[node name="ColorRect" type="ColorRect" parent="Area2D/Area2D" unique_id=481810793]
+offset_left = -5.0
+offset_top = -93.0
+offset_right = 6.0
+offset_bottom = 98.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Area2D" unique_id=1308385521]
+shape = SubResource("RectangleShape2D_08jrq")
+
+[node name="Area2D2" type="Area2D" parent="Area2D" unique_id=101925624 groups=["slots"]]
+position = Vector2(-14, -151)
+script = ExtResource("4_wyghn")
+
+[node name="ColorRect" type="ColorRect" parent="Area2D/Area2D2" unique_id=1758087020]
+offset_left = -34.0
+offset_top = -32.0
+offset_right = 34.0
+offset_bottom = 34.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Area2D2" unique_id=892433940]
+shape = SubResource("RectangleShape2D_3mfca")
+
+[node name="Area2D3" type="Area2D" parent="Area2D" unique_id=1813305076 groups=["slots"]]
+script = ExtResource("5_h838n")
+
+[node name="ColorRect" type="ColorRect" parent="Area2D/Area2D3" unique_id=679154557]
+offset_left = -95.0
+offset_top = 9.0
+offset_right = 23.0
+offset_bottom = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Area2D3" unique_id=1797972245]
+position = Vector2(-46, 15)
+shape = SubResource("RectangleShape2D_rucux")
+
+[node name="PopupMenu" type="PopupMenu" parent="Area2D" unique_id=257203078]
+
+[node name="PopupPanel" type="PopupPanel" parent="Area2D" unique_id=1747792309]
+oversampling_override = 1.0
+position = Vector2i(865, 475)
+size = Vector2i(189, 129)
+theme_override_styles/panel = SubResource("StyleBoxFlat_3mfca")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Area2D/PopupPanel" unique_id=1186967811]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 247.0
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="Area2D/PopupPanel/VBoxContainer" unique_id=1138876805]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_08jrq")
+text = "Modelo: ASUS Prime B460M
+Socket: LGA1200
+Chipset: B460
+Memória RAM: Até 64 GB DDR4
+Slots RAM: 4
+Expansão: PCIe x16, PCIe x1
+Armazenamento: SATA III, M.2
+Portas: USB 3.2, HDMI, Ethernet"
+
+[node name="Button" type="Button" parent="Area2D/PopupPanel/VBoxContainer" unique_id=1184171845]
+layout_mode = 2
+size_flags_horizontal = 8
+text = " x "
+flat = true
+
+[connection signal="pressed" from="Area2D/PopupPanel/VBoxContainer/Button" to="Area2D" method="_on_button_pressed"]

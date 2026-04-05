@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://bd7xx34odqi8j"]
+
+[ext_resource type="Script" uid="uid://djtdvd5ay43b3" path="res://menu.gd" id="1_lti8b"]
+[ext_resource type="FontFile" uid="uid://h813b707asmd" path="res://Fontes/SairaStencil-Regular.ttf" id="2_mae5d"]
+[ext_resource type="FontFile" uid="uid://dsat81iw7li6m" path="res://Fontes/Quicksand-Regular.ttf" id="3_4hy44"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mae5d"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lti8b"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="menu" type="Control" unique_id=1869920981]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lti8b")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=781179175]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1814874574]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 148.0
+offset_right = 348.0
+offset_bottom = 306.0
+theme_override_fonts/font = ExtResource("2_mae5d")
+theme_override_font_sizes/font_size = 100
+text = "SMC"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2057371633]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_top = -511.0
+offset_right = 472.0
+offset_bottom = -115.0
+grow_vertical = 0
+
+[node name="jogar" type="Button" parent="VBoxContainer" unique_id=684537356]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4hy44")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/hover = SubResource("StyleBoxFlat_mae5d")
+text = "JOGAR"
+flat = true
+alignment = 0
+
+[node name="sandbox" type="Button" parent="VBoxContainer" unique_id=887361449]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4hy44")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/hover = SubResource("StyleBoxFlat_mae5d")
+text = "SANDBOX"
+flat = true
+alignment = 0
+
+[node name="creditos" type="Button" parent="VBoxContainer" unique_id=26716422]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4hy44")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/hover = SubResource("StyleBoxFlat_mae5d")
+text = "CRÉDITOS"
+flat = true
+alignment = 0
+
+[node name="sair" type="Button" parent="VBoxContainer" unique_id=1427593308]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4hy44")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/hover = SubResource("StyleBoxFlat_mae5d")
+text = "SAIR"
+flat = true
+alignment = 0
+
+[node name="Panel" type="Panel" parent="." unique_id=1957941496]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lti8b")
+
+[node name="Label" type="Label" parent="Panel" unique_id=1969290636]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -341.0
+offset_top = -193.0
+offset_right = 342.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_4hy44")
+theme_override_font_sizes/font_size = 70
+text = "Henrique Cardoso
+Bernardo Leopoldino
+Lucas Pacheco"
+horizontal_alignment = 1
+
+[node name="voltar" type="Button" parent="Panel" unique_id=798095879]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -56.5
+offset_top = -85.0
+offset_right = 56.5
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_4hy44")
+theme_override_font_sizes/font_size = 70
+text = "Voltar"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/jogar" to="." method="_on_jogar_pressed"]
+[connection signal="pressed" from="VBoxContainer/sandbox" to="." method="_on_sandbox_pressed"]
+[connection signal="pressed" from="VBoxContainer/creditos" to="." method="_on_creditos_pressed"]
+[connection signal="pressed" from="VBoxContainer/sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="Panel/voltar" to="." method="_on_voltar_pressed"]
